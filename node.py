@@ -27,7 +27,7 @@ class Node:
     def getFValue(self):
         return self.fvalue
 
-    # Move o '0' nas quatro direções possíveis, gerando nós filhos
+    # Move o '0' nas quatro direções possíveis, gerando nós filhos para direções válidas
     def generate_child(self):
         x, y = self.find(self.shuffledMatrix, 0)
         directions = [[x, y - 1], [x, y + 1], [x - 1, y], [x + 1, y]]
