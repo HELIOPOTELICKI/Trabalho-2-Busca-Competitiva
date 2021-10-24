@@ -1,1 +1,0 @@
-puz.f(node, goal)
