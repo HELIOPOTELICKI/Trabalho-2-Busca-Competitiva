@@ -55,3 +55,4 @@ if __name__ == '__main__':
     puz = Puzzle()
     node = Node(start)
     main(puz, node)
+    print('\nFIM')
