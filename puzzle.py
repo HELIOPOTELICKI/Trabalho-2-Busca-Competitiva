@@ -10,6 +10,21 @@ class Puzzle:
         self.open = []
         self.closed = []
 
+    def getOpenFirst(self):
+        return self.open[0]
+
+    def getOpenList(self):
+        return self.open
+
+    def deletFirstNode(self):
+        del self.open[0]
+
+    def appendNodeOpen(self, node):
+        self.open.append(node)
+
+    def appendNodeClosed(self, node):
+        self.closed.append(node)
+
     # Calcula a heurística - f(n) = g(n) + h(n)
     def calculate_f(self, node, goal):
         start = node.getShuffledMatrix()

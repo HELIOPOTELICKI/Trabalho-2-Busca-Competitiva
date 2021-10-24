@@ -21,6 +21,12 @@ class Node:
     def getGoal(self):
         return self.goal
 
+    def setFValue(self, value):
+        self.fvalue = value
+
+    def getFValue(self):
+        return self.fvalue
+
     # Move o '0' nas quatro direções possíveis, gerando nós filhos
     def generate_child(self):
         x, y = self.find(self.shuffledMatrix, 0)

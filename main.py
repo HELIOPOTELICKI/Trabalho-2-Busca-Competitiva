@@ -12,8 +12,8 @@ def main(puz, node):
     # Obtem a matriz objetivo
     goal = node.getGoal()
 
-    node.fvalue = puz.calculate_f(node, goal)
-    puz.open.append(node)
+    node.setFValue(puz.calculate_f(node, goal))
+    puz.appendNodeOpen(node)
 
     print('\n\nJogo embaralhado:')
     printMatrix(start)
@@ -22,7 +22,7 @@ def main(puz, node):
     print('\nCaminho percorrido:')
 
     while True:
-        cur = puz.open[0]
+        cur = puz.getOpenFirst()
         print('')
 
         printMatrix(cur.getShuffledMatrix())
@@ -31,12 +31,12 @@ def main(puz, node):
             break
 
         for i in cur.generate_child():
-            i.fvalue = puz.calculate_f(i, goal)
-            puz.open.append(i)
+            i.setFValue(puz.calculate_f(i, goal))
+            puz.appendNodeOpen(i)
 
-        puz.closed.append(cur)
-        del puz.open[0]
-        puz.open.sort(key=lambda x: x.fvalue, reverse=False)
+        puz.appendNodeClosed(cur)
+        puz.deletFirstNode()
+        puz.getOpenList().sort(key=lambda x: x.getFValue(), reverse=False)
 
 
 # Apresenta a matriz no terminal
